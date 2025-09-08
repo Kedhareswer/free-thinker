@@ -58,12 +58,12 @@ python app.py
 | 🤖 **Gemini** | `gemini-1.5-pro`, `gemini-1.5-flash` | [aistudio.google.com](https://aistudio.google.com/app/apikey) |
 | 🦙 **Mistral** | `mistral-large-latest`, `open-mistral-7b` | [console.mistral.ai](https://console.mistral.ai/api-keys/) |
 
-### 🛠️ Tools Available
-- 🔍 **Smart Search** - Google/DuckDuckGo/Bing with source verification
-- 🌤️ **Weather** - OpenWeatherMap with maps
-- 📱 **Reddit** - Subreddit scraping with score analysis  
-- 🌐 **Web Scraper** - Extract content from any webpage
-- 🧮 **Calculator** - Basic math operations
+### 🛠️ Tools Available (All Free - No API Keys Required!)
+- 🔍 **Smart Search** - Google/DuckDuckGo/Bing with source verification ✅ **FREE**
+- 🌤️ **Weather** - Free web search-based weather info ✅ **FREE**
+- 📱 **Reddit** - Subreddit scraping with score analysis ✅ **FREE**
+- 🌐 **Enhanced Web Scraper** - Advanced content extraction + context ✅ **FREE**
+- 🧮 **Calculator** - Basic math operations ✅ **FREE**
 
 ---
 
@@ -139,21 +139,23 @@ free-thinker/
 
 ---
 
-## 🔐 API Keys (Optional)
+## 🔐 API Keys (All Optional!)
 
-Add to UI or `config/.env`:
+**✨ NEW: All tools work without API keys!** 
+
+Add to UI or `config/.env` for enhanced features:
 
 ```env
-# AI Providers (choose one)
+# AI Providers (choose one - required for AI reasoning)
 GROQ_API_KEY=your_key_here
 GOOGLE_API_KEY=your_key_here  
 MISTRAL_API_KEY=your_key_here
 
-# Tools (all optional - free alternatives available)
-SERPER_API_KEY=your_key_here     # Google search
-WEATHER_API_KEY=your_key_here    # Weather data
-CLIENT_ID=your_key_here          # Reddit  
-CLIENT_SECRET=your_key_here      # Reddit
+# Enhanced Tools (100% optional - free alternatives built-in)
+SERPER_API_KEY=your_key_here     # Premium Google search (free: DuckDuckGo/Bing)
+WEATHER_API_KEY=your_key_here    # Premium weather (free: web search)
+CLIENT_ID=your_key_here          # Reddit API (free: web scraping) 
+CLIENT_SECRET=your_key_here      # Reddit API (free: web scraping)
 ```
 
 ---
