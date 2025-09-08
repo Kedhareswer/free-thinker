@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pytest_cache/
+*.coverage
+.coverage.*
+.pytype/
+.mypy_cache/
+
+# Environments
+.env
+.env.*
+.venv/
+venv/
+ENV/
+config/.env
+
+# Build / Dist
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+.kombai
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / Temp
+*.log
+*.tmp
+*.cache/
+
+# Project-specific
+config/.env
+.kombai/
+
+# Gradio
+gradio_cached_examples/
+
+# Node (if any future assets)
+node_modules/
