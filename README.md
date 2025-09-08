@@ -1,191 +1,184 @@
-# FreeThinker: Your own free of charge AI agent
+# 🧠 FreeThinker
+> **Your intelligent, reasoning AI agent with free search capabilities**
 
-![Python](https://img.shields.io/badge/Python-3.12%2B-blue)
-![Gradio](https://img.shields.io/badge/Gradio-UI-brightgreen)
-![License](https://img.shields.io/badge/License-Apache_2.0-lightgrey)
-![Status](https://img.shields.io/badge/Status-Active-success)
-![Type](https://img.shields.io/badge/Type-Agent-orange)
+<div align="center">
 
-FreeThinker is an AI agent that uses no-cost/open APIs to automate tasks through natural language. It supports multiple providers (Groq, Gemini, Mistral) and includes a modern Gradio UI with structured outputs: tables, charts, and maps.
+[![Python](https://img.shields.io/badge/Python-3.12+-3776ab?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Gradio](https://img.shields.io/badge/Gradio-UI-ff7c00?style=for-the-badge&logo=gradio&logoColor=white)](https://gradio.app)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=for-the-badge)](https://github.com/Kedhareswer/free-thinker/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-Kedhareswer-181717?style=for-the-badge&logo=github)](https://github.com/Kedhareswer/free-thinker)
 
----
+*An AI agent that **reasons**, **verifies sources**, and works with **free search engines** (no API keys required!)*
 
-## Table of Contents
-1. Overview
-2. Features
-3. Providers and Models
-4. API Keys
-5. Project Structure
-6. Installation
-7. Configuration
-8. Usage
-9. Visualizations (Tables, Charts, Maps)
-10. Prompts
-11. Development Notes
-12. Git Quickstart (init and push)
-13. License
-14. Contact
+[🚀 Quick Start](#-quick-start) • [🛠️ Features](#-features) • [📊 Visualizations](#-visualizations) • [🔧 Setup](#-setup)
+
+</div>
 
 ---
 
-## 1) Overview
-FreeThinker automates tasks via natural language. It selects the right tool for each prompt and uses your chosen LLM provider and model. The UI shows raw output, tables, charts, and maps.
+## 🌟 What Makes FreeThinker Special?
 
-## 2) Features
-- No-cost API usage (where available).
-- Multiple providers: Groq, Gemini, Mistral (official).
-- Tools: Search (Serper), Weather (OpenWeather), Reddit scraping, Web scraping, Basic calculator.
-- Gradio UI with:
-  - Raw output,
-  - Tables,
-  - Plotly charts,
-  - Folium maps,
-  - Live model refresh,
-  - Runtime API key inputs,
-  - Prompts preview (system + format prompts).
+🧠 **Reasoning Agent** - Verifies sources and double-checks information  
+🆓 **Free Search** - Uses DuckDuckGo & Bing when no API keys provided  
+🎨 **Rich UI** - Interactive tables, charts, and maps  
+⚡ **Multi-Provider** - Groq, Gemini, Mistral support  
+🔄 **Live Refresh** - Fetch latest models from providers  
 
-## 3) Providers and Models (examples)
-| Provider | Example Models |
-|---|---|
-| Groq | `llama-3.1-70b-versatile`, `llama-3.1-8b-instant` |
-| Gemini | `gemini-1.5-pro`, `gemini-1.5-flash` |
-| Mistral (official) | `mistral-large-latest`, `open-mistral-7b`, `open-mixtral-8x7b`, `codestral-latest` |
+---
 
-Use the “Refresh Models” button in the UI to fetch the latest model list from the selected provider (after entering the provider key).
+## 🚀 Quick Start
 
-## 4) API Keys
-| Purpose | Key Name | Where to get it |
-|---|---|---|
-| Groq models | `GROQ_API_KEY` | https://console.groq.com/keys |
-| Gemini models | `GOOGLE_API_KEY` | https://aistudio.google.com/app/apikey |
-| Mistral models | `MISTRAL_API_KEY` | https://console.mistral.ai/api-keys/ |
-| Web search (Serper) | `SERPER_API_KEY` | https://serper.dev |
-| Weather (OpenWeather) | `WEATHER_API_KEY` | https://openweathermap.org/api |
-| Reddit tool | `CLIENT_ID`, `CLIENT_SECRET` | https://www.reddit.com/prefs/apps |
-
-Keys entered in the UI override `.env` for the current session.
-
-## 5) Project Structure
-```
-FreeThinker/
-├─ app.py                  # Gradio UI
-├─ agent.py                # Core agent orchestration
-├─ models/
-│  ├─ llama_3_1_70B.py     # Groq provider
-│  ├─ gemini.py            # Gemini provider
-│  └─ mistral.py           # Mistral (official) provider
-├─ tools/
-│  ├─ search_tool.py       # Google (Serper) search
-│  ├─ weather_forecaster.py# OpenWeather
-│  ├─ reddit_scrapper.py   # Reddit scraping
-│  ├─ scrape_tool.py       # Simple web scraper
-│  └─ basic_calculator.py  # Calculator
-├─ prompts/
-│  ├─ system_prompt.py     # System prompt template
-│  └─ format_prompt.py     # Format prompts per tool
-├─ config/
-│  └─ .env                 # Optional fallback for keys
-├─ requirements.txt
-├─ .gitignore
-└─ README.md
-```
-
-## 6) Installation
 ```bash
-# Optional but recommended: virtual environment
+# Clone and setup
+git clone https://github.com/Kedhareswer/free-thinker.git
+cd free-thinker
+pip install -r requirements.txt
+
+# Launch UI
+python app.py
+```
+
+**No API keys?** No problem! FreeThinker works with free search engines out of the box.
+
+---
+
+## 🛠️ Features
+
+### 🔍 Smart Search System
+| Search Engine | Type | API Key Required |
+|---|---|---|
+| 🔥 **Google** (via Serper) | Premium | ✅ Optional |
+| 🦆 **DuckDuckGo** | Free | ❌ No |
+| 🌐 **Bing** | Free | ❌ No |
+
+### 🤖 AI Providers
+| Provider | Models | Get API Key |
+|---|---|---|
+| ⚡ **Groq** | `llama-3.1-70b-versatile`, `llama-3.1-8b-instant` | [console.groq.com](https://console.groq.com/keys) |
+| 🤖 **Gemini** | `gemini-1.5-pro`, `gemini-1.5-flash` | [aistudio.google.com](https://aistudio.google.com/app/apikey) |
+| 🦙 **Mistral** | `mistral-large-latest`, `open-mistral-7b` | [console.mistral.ai](https://console.mistral.ai/api-keys/) |
+
+### 🛠️ Tools Available
+- 🔍 **Smart Search** - Google/DuckDuckGo/Bing with source verification
+- 🌤️ **Weather** - OpenWeatherMap with maps
+- 📱 **Reddit** - Subreddit scraping with score analysis  
+- 🌐 **Web Scraper** - Extract content from any webpage
+- 🧮 **Calculator** - Basic math operations
+
+---
+
+## 📊 Visualizations
+
+The UI automatically generates:
+
+| Output Type | Example | When |
+|---|---|---|
+| 📊 **Charts** | Weather metrics, Reddit scores | Weather/Reddit queries |
+| 🗺️ **Maps** | City location with marker | Weather queries |
+| 📋 **Tables** | Reddit posts with Title/Score/Body | Reddit queries |
+
+---
+
+## 🔧 Setup
+
+### 1️⃣ Environment
+```bash
 python -m venv .venv
-# Windows PowerShell
+# Windows
 .\.venv\Scripts\Activate.ps1
-# Install dependencies
+# Linux/Mac  
+source .venv/bin/activate
+```
+
+### 2️⃣ Install
+```bash
 pip install -r requirements.txt
 ```
 
-## 7) Configuration
-You can add keys in `config/.env` (optional fallback):
-```
-GROQ_API_KEY=...
-GOOGLE_API_KEY=...
-MISTRAL_API_KEY=...
-SERPER_API_KEY=...
-WEATHER_API_KEY=...
-CLIENT_ID=...
-CLIENT_SECRET=...
-```
-In the UI, you can enter these keys at runtime (they take precedence over .env).
-
-## 8) Usage
-
-### CLI (terminal)
+### 3️⃣ Run
 ```bash
+# Web UI (recommended)
+python app.py
+
+# CLI mode
 python -m agent
 ```
-Type `exit` to quit.
 
-### Gradio App (web UI)
-```bash
-python app.py
+---
+
+## 🎯 Usage Examples
+
+### 💬 In the UI:
+1. **Select Provider**: Groq, Gemini, or Mistral
+2. **Enter API Key**: Or leave empty to use free search
+3. **Ask Questions**: 
+   - *"What's the weather in Tokyo?"*
+   - *"Search for recent AI developments"*  
+   - *"Get top 5 posts from r/Python"*
+
+### 🧠 Reasoning Features:
+- ✅ **Source Verification** for search results
+- 🔍 **Consistency Checking** across multiple sources  
+- 📊 **Confidence Scoring** for information reliability
+- 🔄 **Cross-validation** suggestions
+
+---
+
+## 📁 Project Structure
+
 ```
-This opens a local Gradio interface: http://127.0.0.1:7860
-
-- Enter a prompt and select provider/model.
-- Paste your API keys in the UI.
-- Click “Refresh Models” after entering the provider key to fetch the latest models.
-
-## 9) Visualizations (Tables, Charts, Maps)
-
-- Tables:
-  - Reddit results parsed into a table with columns `Title`, `Score`, `Body`.
-- Charts:
-  - Weather: bar chart of `Temperature`, `Feels like`, `Min`, `Max`.
-  - Reddit: bar chart of `Score` by `Title`.
-- Maps:
-  - Weather: Folium map of the city (geocoded using OSM Nominatim).
-
-Optional placeholders for screenshots:
-- UI Overview: `docs/images/ui-overview.png`
-- Reddit Table + Chart: `docs/images/reddit-table-chart.png`
-- Weather Chart + Map: `docs/images/weather-chart-map.png`
-
-## 10) Prompts
-- The “Prompts (System and Format)” accordion in the UI shows:
-  - The active system prompt (from `prompts/system_prompt.py`) with live tool descriptions.
-  - The format prompt per tool (from `prompts/format_prompt.py`).
-
-## 11) Development Notes
-- The agent returns a structured dict for UI rendering while preserving CLI prints.
-- Tools and providers accept runtime keys and fall back to `.env` / environment variables.
-- Error handling is defensive and returns user-friendly messages.
-
-## 12) Git Quickstart (init and push)
-Caution: the first step deletes local Git history.
-
-Linux/macOS:
-```bash
-rm -rf .git
-git init
-git remote add origin https://github.com/Kedhareswer/free-thinker.git
-git add .
-git branch -M main
-git commit -m "chore: init repo with Gradio UI, providers, docs, and .gitignore"
-git push -u origin main
+free-thinker/
+├── 🎨 app.py                 # Gradio UI
+├── 🧠 agent.py               # Reasoning agent core
+├── 🤖 models/                # AI provider integrations
+├── 🛠️ tools/                 # Tool implementations  
+├── 💬 prompts/               # System & format prompts
+├── ⚙️ config/                # Configuration files
+└── 📄 requirements.txt       # Dependencies
 ```
 
-Windows PowerShell (first command only differs):
-```powershell
-Remove-Item -Recurse -Force .git
-git init
-git remote add origin https://github.com/Kedhareswer/free-thinker.git
-git add .
-git branch -M main
-git commit -m "chore: init repo with Gradio UI, providers, docs, and .gitignore"
-git push -u origin main
+---
+
+## 🔐 API Keys (Optional)
+
+Add to UI or `config/.env`:
+
+```env
+# AI Providers (choose one)
+GROQ_API_KEY=your_key_here
+GOOGLE_API_KEY=your_key_here  
+MISTRAL_API_KEY=your_key_here
+
+# Tools (all optional - free alternatives available)
+SERPER_API_KEY=your_key_here     # Google search
+WEATHER_API_KEY=your_key_here    # Weather data
+CLIENT_ID=your_key_here          # Reddit  
+CLIENT_SECRET=your_key_here      # Reddit
 ```
 
-## 13) License
-This project is licensed under the Apache 2.0 License. See the LICENSE file.
+---
 
-## 14) Contact
-- Email: diegovelillarecio@gmail.com
-- GitHub: https://github.com/diegovelilla
-- Hugging Face: https://huggingface.co/diegovelilla
-- LinkedIn: https://www.linkedin.com/in/diego-velilla-recio/
+## 🤝 Contributing
+
+Found a bug? Want to add a feature? PRs welcome!
+
+1. Fork the repo
+2. Create your feature branch
+3. Make your changes
+4. Submit a pull request
+
+---
+
+## 📄 License
+
+Apache 2.0 License - see [LICENSE](https://github.com/Kedhareswer/free-thinker/blob/main/LICENSE)
+
+---
+
+<div align="center">
+
+**Made with ❤️ for the AI community**
+
+⭐ Star this repo if you find it useful!
+
+</div>
